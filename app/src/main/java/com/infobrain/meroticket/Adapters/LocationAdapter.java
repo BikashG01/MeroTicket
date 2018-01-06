@@ -1,5 +1,3 @@
-package com.infobrain.meroticket.Adapters;
-
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,7 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
 import com.infobrain.meroticket.DataModels.Location_DataModel;
 import com.infobrain.meroticket.R;
 import java.util.List;

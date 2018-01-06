@@ -1,5 +1,3 @@
-package com.infobrain.meroticket.Activities;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -28,9 +26,6 @@ public class ToLocationActivity extends AppCompatActivity {
     ListView listView;
     MaterialSearchView searchView;
     List<String> locationList = new ArrayList<>();
-    public static final String[] location_names = new String[]{
-            "Kathmandu", "Pokhara", "Lamjung", "Biratanagar", "Gorkha", "Baglung", "Mustang", "Jhapa", "Nepalgunj", "Bhaktapur", "Panauti", "Dolkha", "Birjunj"
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,24 +62,25 @@ public class ToLocationActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 TextView textView = (TextView) view.findViewById(android.R.id.text1);
                 String text = textView.getText().toString();
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString("to_name", text);
                 editor.commit();
-                startActivity(intent);
-                finish();
+                onBackPressed();
+
             }
         });
     }
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this, MainActivity.class);
+        super.onBackPressed();
+        Intent intent= new Intent(ToLocationActivity.this,MainActivity.class);
         finish();
         startActivity(intent);
-        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
+
     }
 
     @Override
@@ -108,7 +104,7 @@ public class ToLocationActivity extends AppCompatActivity {
     }
 
     public void getCityList() {
-        String selectQuery = "SELECT " + DBHelper.COLUMN_LOCATION + " FROM " + DBHelper.TABLE_LOCATION;
+        String selectQuery = "SELECT DISTINCT " + DBHelper.COLUMN_LOCATION + " FROM " + DBHelper.TABLE_LOCATION;
         SQLiteDatabase database = new DBHelper(this).getWritableDatabase();
         Cursor cursor = database.rawQuery(selectQuery, null);
 

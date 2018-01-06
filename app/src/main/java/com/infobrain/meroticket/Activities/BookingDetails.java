@@ -44,54 +44,6 @@ public class BookingDetails extends AppCompatActivity {
 
 
     public void success() {
-
-
-        /*final AlertDialog dialog = new AlertDialog.Builder(this)
-                .setTitle("Booking Conformation")
-                .setView(R.layout.custom_book_confirm)
-                .create();
-
-        dialog.show();
-        Button btn_cancel = (Button) dialog.findViewById(R.id.btn_cancel);
-        Button btn_confirm = (Button) dialog.findViewById(R.id.btn_confirm);
-        btn_confirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                alertDialog();
-                dialog.dismiss();
-            }
-        });
-        btn_cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });*/
-
-
-        /*final Dialog dialog= new Dialog(this);
-        dialog.setContentView(R.layout.custom_book_confirm);
-        dialog.setTitle("Booking ");
-        Button btn_cancel=(Button)dialog.findViewById(R.id.btn_cancel);
-        Button btn_confirm=(Button)dialog.findViewById(R.id.btn_confirm);
-        dialog.show();
-        btn_confirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                alertDialog();
-                dialog.dismiss();
-                *//*Intent intent= new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(intent);*//*
-            }
-        });
-        btn_cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });*/
-
-
     }
 
     public void alertDialog() {

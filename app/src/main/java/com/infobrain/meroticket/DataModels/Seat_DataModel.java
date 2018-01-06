@@ -1,9 +1,3 @@
-package com.infobrain.meroticket.DataModels;
-
-/**
- * Created by rp on 11/19/17.
- */
-
 public class Seat_DataModel {
 
     String seat_name, seat_price, seat_category, seat_position;

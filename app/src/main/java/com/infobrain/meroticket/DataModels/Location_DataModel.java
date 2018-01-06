@@ -1,4 +1,3 @@
-package com.infobrain.meroticket.DataModels;
 
 /**
  * Created by bikas on 11/15/2017.

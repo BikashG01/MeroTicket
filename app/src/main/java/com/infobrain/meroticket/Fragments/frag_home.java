@@ -1,5 +1,3 @@
-package com.infobrain.meroticket.Fragments;
-
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -17,7 +15,7 @@ public class frag_home extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.frag_home,container,false);
+        return inflater.inflate(R.layout.frag_bus_challan,container,false);
     }
 
     @Override
@@ -25,18 +23,6 @@ public class frag_home extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle("Home");
     }
-    /*public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        //returning our layout file
-        //change R.layout.yourlayoutfilename for each of your fragments
-        return inflater.inflate(R.layout.fragment_menu_1, container, false);
-    }
 
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        //you can set the title for your toolbar here for different fragments different titles
-        getActivity().setTitle("Menu 1");
-    }*/
 
 }

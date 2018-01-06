@@ -1,5 +1,3 @@
-package com.infobrain.meroticket.SqliteDB;
-
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -8,9 +6,6 @@ import static com.infobrain.meroticket.SqliteDB.DBHelper.COLUMN_ID;
 import static com.infobrain.meroticket.SqliteDB.DBHelper.COLUMN_LOCATION;
 import static com.infobrain.meroticket.SqliteDB.DBHelper.TABLE_LOCATION;
 
-/**
- * Created by frank on 12/17/2017.
- */
 
 public class SQLiteOperations {
     DBHelper dbHelper;

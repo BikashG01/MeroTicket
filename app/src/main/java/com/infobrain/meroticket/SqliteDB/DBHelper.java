@@ -1,13 +1,10 @@
-package com.infobrain.meroticket.SqliteDB;
-
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Handler;
 
-/**
- * Created by frank on 12/17/2017.
- */
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -46,6 +43,5 @@ public class DBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_LOCATION);
         sqLiteDatabase.execSQL(CREATE_LOCATION_TABLE);
     }
-
 
 }

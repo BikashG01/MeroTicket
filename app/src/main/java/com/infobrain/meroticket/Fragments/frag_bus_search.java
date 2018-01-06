@@ -1,5 +1,3 @@
-package com.infobrain.meroticket.Fragments;
-
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -88,9 +86,6 @@ public class frag_bus_search extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        // Toast.makeText(getContext(), "I am onViewCreated", Toast.LENGTH_LONG).show();
-       /* getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_button);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
         getActivity().setTitle("Bus Search");
         pref_from = this.getActivity().getSharedPreferences("FROMNAME", 0);
         pref_to = this.getActivity().getSharedPreferences("TONAME", 0);
@@ -242,9 +237,7 @@ public class frag_bus_search extends Fragment {
 
                     stateEditor = pref_state.edit();
                     dateditor = pref_date.edit();
-                    //editors.putString("from_name", from_txtview.getText().toString());
-                    //Log.e(from_txtview.getText().toString(),"FROM NAME:");
-                    //editors.putString("to_name", to_txtview.getText().toString());
+    
                     stateEditor.putString("day_night", day_night);
                     dateditor.putString("date", stringDate);
                     Log.e(stringDate, "DATE");
@@ -254,6 +247,7 @@ public class frag_bus_search extends Fragment {
                     stateEditor.commit();
                     dateditor.commit();
                     startActivity(intent);
+                    getActivity().overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
                 }
 
 
@@ -269,13 +263,8 @@ public class frag_bus_search extends Fragment {
                 Intent intent = new Intent(getContext(), FromLocationActivity.class);
                 // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
-                //getActivity().finish();
-               /* Fragment fragment = new From_frag();
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.frame_layout, fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();*/
+                getActivity().overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
+        
             }
         });
         to_txtview.setOnClickListener(new View.OnClickListener() {
@@ -288,6 +277,7 @@ public class frag_bus_search extends Fragment {
                 Intent intent = new Intent(getContext(), ToLocationActivity.class);
                 //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
                 //getActivity().finishAffinity();
 
             }
@@ -321,9 +311,7 @@ public class frag_bus_search extends Fragment {
                 location_to = temp2;
                 stateEditor = pref_state.edit();
                 dateditor = pref_date.edit();
-                //editors.putString("from_name", from_txtview.getText().toString());
-                //Log.e(from_txtview.getText().toString(),"FROM NAME:");
-                //editors.putString("to_name", to_txtview.getText().toString());
+            
                 SharedPreferences.Editor editor1 = pref_from.edit();
                 SharedPreferences.Editor editor2 = pref_to.edit();
                 editor1.putString("from_name", location_from);
@@ -331,8 +319,7 @@ public class frag_bus_search extends Fragment {
                 editor1.commit();
                 editor2.commit();
 
-                /*Log.e("BEFORE_FLIP_from", location_from);
-                Log.e("BEFORE_FLIP_to", location_to);*/
+            
 
             } else if(fab_flag.equals(true)) {
                 fab_flag = false;
@@ -397,15 +384,6 @@ public class frag_bus_search extends Fragment {
         pref_date = this.getActivity().getSharedPreferences("DATE", 0);
         pref_date.edit().remove("date").commit();
 
-
-        /*pref_to.edit().remove("to_name").commit();
-//        pref_title = this.getActivity().getSharedPreferences("TITLENAME", 0);
-        pref_title.edit().remove("to_name").commit();
-//        pref_title = this.getActivity().getSharedPreferences("TITLENAME", 0);
-        pref_title.edit().remove("day_night").commit();
-//        pref_title = this.getActivity().getSharedPreferences("TITLENAME", 0);
-        pref_to.edit().remove("to_from").commit();
-        //pref_title.edit().clear();*/
         super.onDestroy();
     }
 
@@ -462,8 +440,7 @@ public class frag_bus_search extends Fragment {
             yy1 = yy;
             mm1 = mm;
             dd1 = dd;
-            //date_dropdown.setText(dayofweek+","+dd + "-" + mm + "-" + yy);
-            // get_date.setText(dd + " " + dayofweek + "," + months + " " + yy);
+        
             stringDate = Integer.toString(dd) + " " + months + "," + dayofweek + " " + Integer.toString(yy);
             Log.e("DATE CHAIYAAKO", stringDate);
             get_date.setText(dd + " " + months + "," + dayofweek + " " + yy);

@@ -1,5 +1,3 @@
-package com.infobrain.meroticket.Activities;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -28,77 +29,54 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-public class BordingPoint extends AppCompatActivity{
+public class BordingPoint extends AppCompatActivity {
     Button next;
-    private List<BordingPointModel> point_data;
     ListView boarding_point_list_View;
     private List<BordingPointModel> bordingPointModels = new ArrayList<>();
+    private String boarding_point;
+    private String[] boarding_point_array;
     private BordingPointAdapter bordingPointAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bording_point);
+        final Singleton c_code = (Singleton) getApplicationContext();
+        boarding_point=c_code.getBoarding_point();
+        String converted=boarding_point.toUpperCase();
+        Log.e("Boarding Point",converted);
+        String split = ",";
+        boarding_point_array = converted.split(split);
+        List<String> values = new ArrayList<String>(Arrays.asList(boarding_point_array));
         boarding_point_list_View=(ListView)findViewById(R.id.boarding_point_list);
-        next=(Button)findViewById(R.id.next);
-        next.setOnClickListener(new View.OnClickListener() {
+        final ArrayAdapter board_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,values);
+        boarding_point_list_View.setAdapter(board_adapter);
 
+        boarding_point_list_View.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent= new Intent(BordingPoint.this,BookingDetails.class);
+                Object o = boarding_point_list_View.getItemAtPosition(i);
+                String str=o.toString();
+                intent.putExtra("boarding_point",str);
+                Log.e("BOARDING POINT",str);
                 startActivity(intent);
+                finish();
+                overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
             }
         });
-        bordingPointAdapter = new BordingPointAdapter(bordingPointModels, getApplicationContext());
     }
-    public void load_BoardingPoint(String url) {
-        String URL_VALUE;
-        URL_VALUE = url;
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Loading...");
-        progressDialog.show();
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_VALUE, new Response.Listener<String>() {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
 
-            @Override
-            public void onResponse(String response) {
-                progressDialog.dismiss();
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    JSONArray array = jsonObject.getJSONArray("bus_boarding");
-                    for (int i = 0; i < array.length(); i++) {
-                        JSONObject contain = array.getJSONObject(i);
-                      BordingPointModel bordingPointModel= new BordingPointModel(
-                                contain.getString("boarding_point")
-                        );
-                       bordingPointModels.add(bordingPointModel);
-                        //Toast.makeText(MainActivity.this, String.valueOf(model.add(data_data)), Toast.LENGTH_SHORT).show();
-                    }
-                    if (bordingPointModels != null) {
-                        progressDialog.dismiss();
-
-                    }
-
-                } catch (JSONException e) {
-                    Log.e("ERROR:", e.getMessage());
-                    progressDialog.dismiss();
-                }
-                bordingPointAdapter.notifyDataSetChanged();
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                //Toast.makeText(BusActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
-                progressDialog.dismiss();
-
-            }
-
-        });
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        stringRequest.setRetryPolicy(new DefaultRetryPolicy(90000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        requestQueue.add(stringRequest);
-
+        }
+        return false;
     }
 }

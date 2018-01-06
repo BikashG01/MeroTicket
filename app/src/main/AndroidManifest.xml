@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.infobrain.meroticket">
+    package="com................">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".Activities.Singleton"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -34,27 +38,32 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Activities.ToLocationActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemes" />
         <activity
             android:name=".Activities.ChooseBusSeat"
-            android:launchMode="singleTop"
             android:parentActivityName=".Activities.BusActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Activities.BordingPoint"
             android:label="Boarding point"
-            android:parentActivityName=".Activities.ChooseBusSeat" />
+            android:parentActivityName=".Activities.ChooseBusSeat"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Activities.BookingDetails"
-            android:parentActivityName=".Activities.BordingPoint"></activity>
+            android:parentActivityName=".Activities.BordingPoint"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Activities.Combo_Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemes" />
-        <activity android:name=".Activities.MainActivity"
+        <activity
+            android:name=".Activities.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Activities.Late_Login"
+            android:parentActivityName=".Activities.ChooseBusSeat"></activity>
     </application>
 
 </manifest>

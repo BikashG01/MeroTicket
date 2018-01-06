@@ -1,6 +1,244 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/detail_layout"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Booking No."
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ticket No."
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Passenger"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mobile No"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Boarding Point"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Route"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Booked Seats"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/pay_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Payment Mode"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total(Rs)"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remarks"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Operator Name"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_marginTop="3dp"
+                android:layout_width="1dp"
+                android:layout_height="16dp"
+                android:background="@color/colorPrimary" />
+            <TextView
+                android:layout_marginTop="3dp"
+                android:layout_width="1dp"
+                android:layout_height="16dp"
+                android:background="@color/colorPrimary" />
+            <TextView
+                android:layout_marginTop="3dp"
+                android:layout_width="1dp"
+                android:layout_height="16dp"
+                android:background="@color/colorPrimary" />
+            <TextView
+                android:layout_marginTop="3dp"
+                android:layout_width="1dp"
+                android:layout_height="16dp"
+                android:background="@color/colorPrimary" />
+            <TextView
+                android:layout_marginTop="3dp"
+                android:layout_width="1dp"
+                android:layout_height="16dp"
+                android:background="@color/colorPrimary" />
+            <TextView
+                android:layout_marginTop="3dp"
+                android:layout_width="1dp"
+                android:layout_height="16dp"
+                android:background="@color/colorPrimary" />
+            <TextView
+                android:layout_marginTop="3dp"
+                android:layout_width="1dp"
+                android:layout_height="16dp"
+                android:background="@color/colorPrimary" />
+            <TextView
+                android:layout_marginTop="3dp"
+                android:layout_width="1dp"
+                android:layout_height="16dp"
+                android:background="@color/colorPrimary" />
+            <TextView
+                android:layout_marginTop="3dp"
+                android:layout_width="1dp"
+                android:layout_height="16dp"
+                android:background="@color/colorPrimary" />
+            <TextView
+                android:layout_marginTop="3dp"
+                android:layout_width="1dp"
+                android:layout_height="16dp"
+                android:background="@color/colorPrimary" />
+            <TextView
+                android:layout_marginTop="3dp"
+                android:layout_width="1dp"
+                android:layout_height="16dp"
+                android:background="@color/colorPrimary" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/booking_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Booking No." />
+
+            <TextView
+                android:id="@+id/ticket_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ticket No" />
+
+            <TextView
+                android:id="@+id/pass_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Booking No." />
+
+            <TextView
+                android:id="@+id/mobile_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Booking No." />
+
+            <TextView
+                android:id="@+id/boarding_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Booking No." />
+
+            <TextView
+                android:id="@+id/route"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Booking No." />
+
+            <TextView
+                android:id="@+id/booked_Seats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Booking No." />
+
+            <TextView
+                android:id="@+id/cash_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Booking No." />
+
+            <TextView
+                android:id="@+id/total_amt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Booking No." />
+
+            <TextView
+                android:id="@+id/pass_remarks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Booking No." />
+
+            <TextView
+                android:id="@+id/operator_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Booking No." />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/detail_layout"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/transparent"
+        android:text="OK"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>

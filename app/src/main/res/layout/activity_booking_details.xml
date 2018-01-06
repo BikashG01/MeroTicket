@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="2dp"
-    tools:context="com.infobrain.meroticket.Activities.BookingDetails">
+    tools:context="">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -29,11 +29,12 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="10dp">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Booking Details"
                         android:layout_marginTop="5dp"
+                        android:text="Booking Details"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat"
                         android:textColor="@color/colorPrimary"
                         android:textStyle="bold" />
@@ -56,8 +57,7 @@
                         <TextView
                             android:id="@+id/Bus_no"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Na 2 kha 1234" />
+                            android:layout_height="wrap_content" />
 
                     </LinearLayout>
 
@@ -79,8 +79,7 @@
                         <TextView
                             android:id="@+id/Boarding_point"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Gongabu" />
+                            android:layout_height="wrap_content" />
 
                     </LinearLayout>
 
@@ -102,8 +101,7 @@
                         <TextView
                             android:id="@+id/select_seat"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="A1" />
+                            android:layout_height="wrap_content" />
 
                     </LinearLayout>
 
@@ -125,8 +123,7 @@
                         <TextView
                             android:id="@+id/total_price"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="800" />
+                            android:layout_height="wrap_content" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -145,9 +142,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
                     android:focusable="true"
                     android:focusableInTouchMode="true"
+                    android:orientation="vertical"
                     android:padding="10dp">
 
                     <TextView
@@ -166,8 +163,8 @@
                         android:background="@drawable/custom_textview"
                         android:ems="10"
                         android:hint="Name"
-                        android:padding="10dp"
                         android:nextFocusRight="@+id/passenger_contactno"
+                        android:padding="10dp"
                         android:singleLine="true"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
@@ -178,11 +175,11 @@
                         android:layout_marginTop="8dp"
                         android:background="@drawable/custom_textview"
                         android:ems="10"
-                        android:inputType="phone"
                         android:hint="Contact No."
+                        android:inputType="phone"
+                        android:nextFocusRight="@+id/passenger_email"
                         android:padding="10dp"
                         android:singleLine="true"
-                        android:nextFocusRight="@+id/passenger_email"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
                     <EditText
@@ -194,9 +191,9 @@
                         android:ems="10"
                         android:hint="example@example.com"
                         android:inputType="textEmailAddress"
+                        android:nextFocusRight="@+id/passenger_address"
                         android:padding="10dp"
                         android:singleLine="true"
-                        android:nextFocusRight="@+id/passenger_address"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
                     <EditText

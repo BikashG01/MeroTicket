@@ -1,5 +1,3 @@
-package com.infobrain.meroticket.Activities;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -19,7 +17,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -32,11 +29,9 @@ import com.android.volley.toolbox.Volley;
 import com.infobrain.meroticket.Adapters.BusAdapter;
 import com.infobrain.meroticket.DataModels.BusLayout_DataModel;
 import com.infobrain.meroticket.R;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -80,9 +75,8 @@ public class BusActivity extends AppCompatActivity implements AdapterView.OnItem
         pref_FROM = getSharedPreferences("TONAME", 0);
         pref_date = this.getSharedPreferences("DATE", 0);
         from_title = pref_FROM.getString("from_name", "");
-        //String from_txtview.setText(location_from);
         to_title = pref_TO.getString("to_name", "");
-        //dates = pref_date.getString("date", "");
+
 
         Bundle extras = getIntent().getExtras();
         from = extras.getString("EXTRA_FROM");
@@ -95,25 +89,14 @@ public class BusActivity extends AppCompatActivity implements AdapterView.OnItem
         mnth = Integer.toString(month);
         day = extras.getInt("DAY");
         dy = Integer.toString(day);
-
         to_day = extras.getString("TODAY_DATE");
         Log.e("TODAY KO VALUE", to_day);
         System.out.println("INTENT PASS TODAY_DATE:"+to_day);
         System.out.println("INTENT PASS MONTH VALUE:"+month);
-
-
-        //        checkDate(to_day);
-//        checkDate(to_day);
         sourceDate = year + "-" + month + "-" + day;
         date.setText(sourceDate);
-
-        //Toast.makeText(this, to_day + sourceDate, Toast.LENGTH_LONG).show();
-
         checkDate(sourceDate);
         load_bus_list(from,to,sourceDate);
-
-        //to_txtview.setText(location_to);
-        //this.setTitle(from_title + " to " + to_title);
         this.setTitle(from + " to " + to);
         bus_listView.setAdapter(busAdapter);
         bus_listView.setOnItemClickListener(this);
@@ -124,20 +107,19 @@ public class BusActivity extends AppCompatActivity implements AdapterView.OnItem
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
-        //setDatetxt(year, month, day, week_day);
-
-
         nextbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Start date
 
                 calendar.add(Calendar.DATE, 1);  // number of days to add
                 String destDate = sdf.format(calendar.getTime());  // End date
                 date.setText(destDate);
                 checkDate(destDate);
                 Log.e("NEXTBUTTON",destDate);
+                String temp;
+                temp=sourceDate;
+                sourceDate=destDate;
+                destDate=temp;
                 busLayout_dataModels.clear();
                 load_bus_list(from,to,destDate);
                 bus_listView = findViewById(R.id.bus_list);
@@ -152,19 +134,15 @@ public class BusActivity extends AppCompatActivity implements AdapterView.OnItem
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               /* SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
-                String formattedDate;
-                calendar.add(Calendar.DATE, -1);
-                formattedDate = df.format(calendar.getTime());
-
-                Log.v("PREVIOUS DATE : ", formattedDate);
-                date.setText(formattedDate);*/
                 calendar.add(Calendar.DATE, -1);  // number of days to add
                 String destDate = sdf.format(calendar.getTime());  // End date
                 Log.e("BACKBUTTON",destDate);
                 date.setText(destDate);
                 checkDate(destDate);
-
+                String temp;
+                temp=sourceDate;
+                sourceDate=destDate;
+                destDate=temp;
                 busLayout_dataModels.clear();
                 load_bus_list(from,to,destDate);
                 bus_listView = findViewById(R.id.bus_list);
@@ -176,14 +154,10 @@ public class BusActivity extends AppCompatActivity implements AdapterView.OnItem
             }
         });
 
-        //  listView.setAdapter(adapter);
-
     }
 
     public void load_bus_list(String froms,String tos,String sourceDate) {
-        String url="https://laxmicapital.com.np/abc/services/webservice.asmx/Get_Searched_Bus?C_Code=1001&F_City="+froms+"&T_City="+tos+"&Date="+sourceDate+"&"+"B_Type="+"Day";
-        /*String URL_VALUE;
-        URL_VALUE = url;*/
+        String url="..............."+froms+"&T_City="+tos+"&Date="+sourceDate+"&"+"B_Type="+"Day";
         Log.e("URL",url);
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading...");
@@ -206,7 +180,12 @@ public class BusActivity extends AppCompatActivity implements AdapterView.OnItem
                                 contain.getString("Point_Time"),
                                 contain.getString("Seats"),
                                 contain.getString("Fare"),
-                                contain.getString("Type_Desc")
+                                contain.getString("Type_Desc"),
+                                contain.getString("Seat_Layout"),
+                                contain.getString("Point_Time"),
+                                contain.getString("Bus_Id"),
+                                contain.getString("Route_Id")
+
                         );
                         busLayout_dataModels.add(busLayout_dataModel);
                         //Toast.makeText(MainActivity.this, String.valueOf(model.add(data_data)), Toast.LENGTH_SHORT).show();
@@ -241,16 +220,20 @@ public class BusActivity extends AppCompatActivity implements AdapterView.OnItem
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        final Singleton c_code = (Singleton) getApplicationContext();
+        String date,routID,busId,seatPrice,bus_name,bus_layout,com_code,boarding_point;
+
         BusLayout_DataModel busLayout_dataModel = (BusLayout_DataModel) adapterView.getItemAtPosition(i);
-        SharedPreferences getBusNumber = getApplicationContext().getSharedPreferences(busLayout_dataModel.getBus_name(), 0);
-
-       // Toast.makeText(this, busLayout_dataModel.getBus_name(), Toast.LENGTH_SHORT).show();
-
-        Intent intent = new Intent(getApplicationContext(), ChooseBusSeat.class);
-        intent.putExtra("bus_name", busLayout_dataModel.getBus_name());
-        intent.putExtra("seat_price",busLayout_dataModel.getBus_seat_price());
-
+        Intent intent = new Intent(getApplicationContext(),ChooseBusSeat.class);
+        c_code.setDate(sourceDate);
+        c_code.setBus_id(busLayout_dataModel.getBus_id());
+        c_code.setRoute_id(busLayout_dataModel.getRoute_id());
+        c_code.setSeat_price(busLayout_dataModel.getBus_seat_price());
+        c_code.setBus_name(busLayout_dataModel.getBus_name());
+        c_code.setBus_layout(busLayout_dataModel.getBus_layout());
+        c_code.setBoarding_point(busLayout_dataModel.getBus_borading_point());
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
     }
 
     @Override
@@ -263,7 +246,7 @@ public class BusActivity extends AppCompatActivity implements AdapterView.OnItem
     public void onBackPressed() {
         Intent intent = new Intent(BusActivity.this, MainActivity.class);
         startActivity(intent);
-        overridePendingTransition(R.anim.slide_right, R.anim.slide_left);
+        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
         super.onBackPressed();
     }
 
@@ -271,7 +254,9 @@ public class BusActivity extends AppCompatActivity implements AdapterView.OnItem
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                onBackPressed();
+                Intent intent = new Intent(BusActivity.this, MainActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
                 return true;
         }
         return false;
@@ -280,18 +265,15 @@ public class BusActivity extends AppCompatActivity implements AdapterView.OnItem
 
     public void checkDate(String obtain_date) {
         today_date = to_day;
-        System.out.println("BEFORE CONVERSION TODAY DATE:"+today_date);
-        System.out.println("BEFORE CONVERSION OBTAIN DATE:"+obtain_date);
+        /*System.out.println("BEFORE CONVERSION TODAY DATE:"+today_date);
+        System.out.println("BEFORE CONVERSION OBTAIN DATE:"+obtain_date);*/
 
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         try {
             to_days = df.parse(today_date);
             obtain_days = df.parse(obtain_date);
-           /* Log.e("Converted TODAY DATE",to_days.toString());
-            Log.e("Converted OBTAIN DATE",obtain_days.toString());*/
-            System.out.println("AFTER CONVERSION TODAY DATE : " + df.format(to_days));
-            System.out.println("AFTER CONVERSION OBTAIN DATE : " + df.format(obtain_days));
-            //System.out.println(date);
+           /* System.out.println("AFTER CONVERSION TODAY DATE : " + df.format(to_days));
+            System.out.println("AFTER CONVERSION OBTAIN DATE : " + df.format(obtain_days));*/
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -307,44 +289,6 @@ public class BusActivity extends AppCompatActivity implements AdapterView.OnItem
         else{
             backbtn.setVisibility(View.VISIBLE);
         }
-
-        /*String[] obtain_day = obtain_date.split("-");
-        String obtain_yer = obtain_day[0];
-        String obtain_mnt = obtain_day[1];
-        String obtain_dy = obtain_day[2];
-
-        try {
-             obt_day = sdf.parse(obtain_yer+"-"+obtain_mnt+"-"+obtain_dy);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        String[] too_day = sourceDate.split("-");
-        String too_yer = too_day[0];
-        String too_mnt = too_day[1];
-        String too_dy = too_day[2];
-
-        try {
-            tooo_day = sdf.parse(too_yer+"-"+too_mnt+"-"+too_dy);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-*/
-          /*  if (to_day.equals(obtain_date)) {
-                String dtStart = to_day;
-                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-                try {
-                    Date date = format.parse(dtStart);
-                    System.out.println(date);
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                backbtn.setVisibility(View.INVISIBLE);
-            } else if (tooo_day.before(obt_day)) {
-                backbtn.setVisibility(View.INVISIBLE);
-            } else {
-                backbtn.setVisibility(View.INVISIBLE);
-            }*/
 
     }
 }

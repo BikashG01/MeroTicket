@@ -1,5 +1,3 @@
-package com.infobrain.meroticket.Adapters;
-
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -9,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.infobrain.meroticket.Activities.BookingDetails;
 import com.infobrain.meroticket.DataModels.BordingPointModel;
 import com.infobrain.meroticket.DataModels.BusLayout_DataModel;
@@ -17,10 +14,6 @@ import com.infobrain.meroticket.R;
 
 
 import java.util.List;
-
-/**
- * Created by bikas on 11/23/2017.
- */
 
 public class BordingPointAdapter extends BaseAdapter{
     List<BordingPointModel> bordingPointModels;

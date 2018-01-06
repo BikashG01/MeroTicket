@@ -10,8 +10,6 @@
         android:id="@+id/choose_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        card_view:cardElevation="2dp"
-        card_view:cardCornerRadius="6dp"
         card_view:cardUseCompatPadding="true">
 
         <RelativeLayout
@@ -59,7 +57,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_below="@+id/location_from"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="2dp"
                 android:elevation="5dp"
                 android:layout_alignParentRight="true"
                 android:src="@drawable/flip"/>
@@ -126,9 +124,7 @@
         android:layout_below="@+id/choose_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        card_view:cardCornerRadius="6dp"
-        card_view:cardUseCompatPadding="true"
-        card_view:cardElevation="2dp">
+        card_view:cardUseCompatPadding="true">
 
         <LinearLayout
             android:id="@+id/layout_calender"
@@ -177,7 +173,7 @@
 
     <Button
         android:id="@+id/search_bus_btn"
-        android:layout_width="150dp"
+        android:layout_width="155dp"
         android:layout_height="wrap_content"
         android:text="Search"
         android:elevation="5dp"
@@ -193,9 +189,6 @@
     android:id="@+id/radiobtn"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    card_view:cardCornerRadius="6dp"
-    card_view:cardElevation="2dp"
-    card_view:cardUseCompatPadding="true"
     android:layout_below="@id/calender">
 
     <RadioGroup

@@ -2,15 +2,98 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="8dp">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/search_section"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Home"
-        android:id="@+id/textView"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        android:orientation="vertical">
+        <Spinner
+            android:id="@+id/bus_list_spin"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_centerHorizontal="true"/>
+        <RelativeLayout
+            android:id="@+id/date_section"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/colorPrimary"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/pick_date"
+                android:layout_width="125dp"
+                android:layout_marginLeft="20dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
+                android:textColor="#fff"
+                android:text="DATE"/>
+            <View
+                android:layout_width="1dp"
+                android:layout_height="30dp"
+                android:background="#fff"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"/>
+
+            <Button
+                android:id="@+id/search_btn"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:textColor="#fff"
+                android:layout_marginRight="20dp"
+                android:background="@android:color/transparent"
+                android:text="SEARCH" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/list_data"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:padding="8dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:layout_below="@+id/search_section"
+        android:background="@color/colorPrimary">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="S.N"
+            android:textStyle="bold"
+            android:layout_alignParentLeft="true"
+            android:textColor="#fff"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TICKET NO"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:textColor="#fff"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SEAT NO"
+            android:layout_alignParentRight="true"
+            android:textStyle="bold"
+            android:textColor="#fff"/>
+    </RelativeLayout>
+
+        <ListView
+            android:id="@+id/booking_list"
+            android:layout_below="@+id/list_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ></ListView>
+
 
 </RelativeLayout>

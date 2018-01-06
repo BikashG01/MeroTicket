@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/print_ticket"
+    android:layout_width="match_parent"
+    android:layout_height="450dp"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context="com.infobrain.meroticket.Activities.BookingDetails">
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        card_view:cardCornerRadius="2dp"
+        card_view:cardElevation="2dp"
+        card_view:cardUseCompatPadding="true"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            android:layout_gravity="center"
+            android:background="@mipmap/ic_launcher" />
+
+    </android.support.v7.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/passenger_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name: "
+            android:textAppearance="@style/Base.TextAppearance.AppCompat"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/p_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/passenger_bus_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bus No.: "
+            android:textAppearance="@style/Base.TextAppearance.AppCompat"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/p_bus_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bus Number"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/passenger_seats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seats: "
+            android:textAppearance="@style/Base.TextAppearance.AppCompat"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/p_seats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seats"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/passenger_total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Price: "
+            android:textAppearance="@style/Base.TextAppearance.AppCompat"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/p_total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Price"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/passenger_ticket_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ticket Number: "
+            android:textAppearance="@style/Base.TextAppearance.AppCompat"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/p_ticket_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ticket Number"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+
+
+</LinearLayout>
+
+    <!--<LinearLayout--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content"--><!--android:orientation="vertical"--><!--android:padding="10dp">-->
+
+    <!--<TextView--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:text="Bus Info"--><!--android:textAppearance="@style/Base.TextAppearance.AppCompat"--><!--android:textColor="@color/colorPrimary"--><!--android:textSize="18sp" />--><!--<LinearLayout--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content">--><!--<TextView--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_marginTop="5dp"--><!--android:text="BUS NO:"--><!--android:textAppearance="@style/Base.TextAppearance.AppCompat"/>--><!--<TextView--><!--android:id="@+id/alert_bus_no"--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_marginTop="5dp"--><!--android:text="Something" />-->
+
+    <!--</LinearLayout>--><!--<LinearLayout--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content">--><!--<TextView--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_marginTop="8dp"--><!--android:textAppearance="@style/Base.TextAppearance.AppCompat"--><!--android:text="SEATS:" />--><!--<TextView--><!--android:id="@+id/alert_bus_seat_info"--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_marginTop="8dp"--><!--android:text="A1" />-->
+
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+
+    <!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content">--><!--<TextView--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_marginTop="8dp"--><!--android:textAppearance="@style/Base.TextAppearance.AppCompat"--><!--android:text="TOTAL NRs.:" />--><!--<TextView--><!--android:id="@+id/alert_Total_price"--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_marginTop="8dp"--><!--android:text="800" />-->
+
+    <!--</LinearLayout>--><!--<LinearLayout--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content">--><!--<TextView--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_marginTop="8dp"--><!--android:textAppearance="@style/Base.TextAppearance.AppCompat"--><!--android:text="BOARDING POINT:" />--><!--<TextView--><!--android:id="@+id/alert_boarding_point"--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_marginTop="8dp"--><!--android:text="Gongabu" />-->
+
+    <!--</LinearLayout>-->
+
+
+    <!--</LinearLayout>-->
+
+    <!--</android.support.v7.widget.CardView>--><!--<android.support.v7.widget.CardView--><!--xmlns:card_view="http://schemas.android.com/apk/res-auto"--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content"--><!--card_view:cardCornerRadius="2dp"--><!--card_view:cardElevation="2dp"--><!--card_view:cardUseCompatPadding="true">--><!--<LinearLayout--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content"--><!--android:orientation="vertical"--><!--android:padding="10dp">-->
+
+    <!--<TextView--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:text="Passenger Details"--><!--android:textColor="@color/colorPrimary"--><!--android:textAppearance="@style/Base.TextAppearance.AppCompat"--><!--android:textSize="18sp" />--><!--<LinearLayout--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content">--><!--<TextView--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_marginTop="8dp"--><!--android:textAppearance="@style/Base.TextAppearance.AppCompat"--><!--android:text="PASSENGER NAME:" />--><!--<TextView--><!--android:id="@+id/alert_passenger_name"--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_marginTop="8dp"--><!--android:text="Ram Thapa" />-->
+
+    <!--</LinearLayout>--><!--<LinearLayout--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content">--><!--<TextView--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_marginTop="8dp"--><!--android:textAppearance="@style/Base.TextAppearance.AppCompat"--><!--android:text="CONTACT NO.:" />--><!--<TextView--><!--android:id="@+id/alert_pass_phone_number"--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_marginTop="8dp"--><!--android:text="98********" />-->
+
+    <!--</LinearLayout>--><!--<LinearLayout--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content">--><!--<TextView--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_marginTop="8dp"--><!--android:textAppearance="@style/Base.TextAppearance.AppCompat"--><!--android:text="EMAIL:" />--><!--<TextView--><!--android:id="@+id/alert_pass_email"--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_marginTop="8dp"--><!--android:text="something@gmail.com" />-->
+
+    <!--</LinearLayout>--><!--<LinearLayout--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content">--><!--<TextView--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_marginTop="8dp"--><!--android:textAppearance="@style/Base.TextAppearance.AppCompat"--><!--android:text="ADDRESS:" />--><!--<TextView--><!--android:id="@+id/alert_address"--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_marginTop="8dp"--><!--android:text="Gongabu" />-->
+
+    <!--</LinearLayout>-->
+
+
+    <!--</LinearLayout>-->
+
+    <!--</android.support.v7.widget.CardView>--><!--<LinearLayout--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:orientation="horizontal"--><!--android:layout_gravity="center"--><!--android:layout_marginTop="30dp"--><!--android:padding="10dp">--><!--<Button--><!--android:id="@+id/btn_cancel"--><!--android:layout_width="105dp"--><!--android:layout_height="wrap_content"--><!--android:text="CANCEL"--><!--android:textColor="#ffff"--><!--android:background="@drawable/round_button_style"/>--><!--<Button--><!--android:id="@+id/btn_confirm"--><!--android:layout_width="105dp"--><!--android:layout_height="wrap_content"--><!--android:text="CONFIRM"--><!--android:layout_marginLeft="50dp"--><!--android:background="@drawable/round_button_style"--><!--android:textColor="#ffff"/>--><!--</LinearLayout>-->

@@ -1,5 +1,3 @@
-package com.infobrain.meroticket.Activities;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +5,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import com.infobrain.meroticket.Adapters.LocationAdapter;
 import com.infobrain.meroticket.DataModels.Location_DataModel;
 import com.infobrain.meroticket.Fragments.frag_bus_search;
@@ -18,9 +15,6 @@ import java.util.List;
 
 public class ShowLocationActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     String lo_name;
-    public static final String[] location_names = new String[]{
-            "Kathmandu", "Pokhara", "Lamjung", "Biratanagar", "Gorkha", "Baglung", "Mustang", "Jhapa", "Nepalgunj", "Bhaktapur", "Panauti", "Dolkha"
-    };
     ListView listView;
     List<Location_DataModel> dataModels;
 
